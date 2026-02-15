@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: stg_olist_orders
+    description: "This will contains the order details"
+    columns: 
+      - name: order_id
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: source('raw_olist','customers')
+                field: customer_id
+      - name: order_status
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['created','cancelled','delivered','shipped','canceled','invoiced','processing','unavailable','approved']
