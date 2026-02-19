@@ -140,6 +140,6 @@ http://localhost:8080
 
 4. Trigger the dbt_olist_cosmos DAG
 
-Output:
+**Output:**
 
 ![image](my_dag-graph.png)
